@@ -1,4 +1,3 @@
 # Agrioo
-Agri class
-#visit this link:
+visit this link:
 https://4lan199.github.io/Agrioo/
