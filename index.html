@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Website identitas kelas Agribisnis KA">
+  <title>Agribisnis KA | Identitas Kelas</title>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:#f6f4ef;
+      color:#17191c;
+      line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit}
+    img{display:block;width:100%}
+
+    :root{
+      --dark:#101820;
+      --dark2:#18232d;
+      --gold:#c9a44a;
+      --gold2:#e3c875;
+      --cream:#f6f4ef;
+      --white:#fff;
+      --muted:#70757a;
+      --line:#e6e1d7;
+    }
+
+    /* NAVBAR */
+    .navbar{
+      position:fixed;top:0;left:0;width:100%;height:70px;
+      z-index:1000;display:flex;align-items:center;
+      justify-content:space-between;padding:0 7%;
+      background:rgba(16,24,32,.92);backdrop-filter:blur(12px);
+      transition:.3s;
+    }
+    .brand{color:#fff;font-size:21px;font-weight:800;letter-spacing:.5px}
+    .brand span{color:var(--gold2)}
+    .nav-links{display:flex;gap:28px;list-style:none}
+    .nav-links a{color:#ddd;font-size:13px;transition:.25s}
+    .nav-links a:hover{color:var(--gold2)}
+    .menu{display:none;color:#fff;font-size:28px;cursor:pointer}
+
+    /* HERO */
+    .hero{
+      min-height:100vh;display:flex;align-items:center;
+      position:relative;overflow:hidden;color:#fff;
+      background:
+        linear-gradient(90deg,rgba(8,13,18,.88),rgba(8,13,18,.55),rgba(8,13,18,.7)),
+        url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=2200&q=85")
+        center/cover;
+    }
+    .hero-content{width:min(1100px,86%);margin:auto;padding-top:50px}
+    .eyebrow{
+      color:var(--gold2);font-size:13px;font-weight:700;
+      letter-spacing:4px;text-transform:uppercase;margin-bottom:18px
+    }
+    .hero h1{
+      font-family:Georgia,serif;font-size:clamp(58px,10vw,112px);
+      line-height:.9;letter-spacing:-5px;margin-bottom:25px
+    }
+    .hero h1 span{color:var(--gold2)}
+    .hero p{max-width:590px;color:#ddd;font-size:17px;margin-bottom:28px}
+    .btn{
+      display:inline-block;border:1px solid var(--gold2);
+      color:#fff;padding:12px 25px;font-size:14px;
+      transition:.3s
+    }
+    .btn:hover{background:var(--gold2);color:#101820}
+    .scroll{
+      position:absolute;bottom:25px;right:7%;
+      font-size:10px;letter-spacing:2px;color:#ccc
+    }
+
+    /* GENERAL */
+    section{padding:100px 7%}
+    .section-head{text-align:center;margin-bottom:52px}
+    .section-head small{
+      color:var(--gold);font-weight:800;letter-spacing:3px;
+      text-transform:uppercase;font-size:11px
+    }
+    .section-head h2{
+      font-family:Georgia,serif;font-size:42px;margin:8px 0
+    }
+    .section-head p{color:var(--muted);max-width:620px;margin:auto}
+
+    /* IDENTITY */
+    .identity{background:#fff}
+    .identity-grid{
+      max-width:1100px;margin:auto;display:grid;
+      grid-template-columns:repeat(4,1fr);gap:18px
+    }
+    .identity-card{
+      padding:30px 18px;text-align:center;border:1px solid var(--line);
+      background:#fff;transition:.3s
+    }
+    .identity-card:hover{transform:translateY(-7px);box-shadow:0 16px 35px #0000000d;border-color:var(--gold)}
+    .icon{
+      width:52px;height:52px;margin:0 auto 15px;border-radius:50%;
+      display:grid;place-items:center;background:#f7efd9;font-size:22px
+    }
+    .identity-card h3{font-size:13px;color:var(--muted);font-weight:500}
+    .identity-card p{font-size:16px;font-weight:700;margin-top:3px}
+
+    /* ABOUT */
+    .about{background:var(--cream)}
+    .about-grid{
+      max-width:1100px;margin:auto;display:grid;
+      grid-template-columns:1fr 1fr;gap:65px;align-items:center
+    }
+    .about-image{height:430px;overflow:hidden}
+    .about-image img{height:100%;object-fit:cover;transition:.6s}
+    .about-image:hover img{transform:scale(1.05)}
+    .about-text small{color:var(--gold);font-weight:800;letter-spacing:3px}
+    .about-text h2{font-family:Georgia,serif;font-size:40px;line-height:1.1;margin:12px 0 20px}
+    .about-text p{color:#62676c;margin-bottom:14px}
+    .quote{
+      border-left:3px solid var(--gold);padding:14px 18px;
+      margin-top:22px;background:#fff;font-style:italic
+    }
+
+    /* STRUCTURE */
+    .structure{background:#fff}
+    .structure-grid{
+      max-width:950px;margin:auto;display:grid;
+      grid-template-columns:repeat(2,1fr);gap:18px
+    }
+    .person{
+      display:flex;align-items:center;gap:18px;
+      padding:18px;border:1px solid var(--line);transition:.3s
+    }
+    .person:hover{transform:translateY(-5px);border-color:var(--gold)}
+    .person img{
+      width:76px;height:76px;object-fit:cover;border-radius:50%
+    }
+    .person small{color:var(--gold);font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase}
+    .person h3{font-size:16px}
+
+    /* MEMBERS */
+    .members{background:var(--dark);color:#fff}
+    .members .section-head p{color:#aeb5ba}
+    .members .section-head h2{color:#fff}
+    .members-grid{
+      max-width:1150px;margin:auto;display:grid;
+      grid-template-columns:repeat(5,1fr);gap:15px
+    }
+    .member{
+      background:#17222b;border:1px solid #29353e;overflow:hidden;
+      transition:.3s
+    }
+    .member:hover{transform:translateY(-7px);border-color:var(--gold)}
+    .member img{height:220px;object-fit:cover}
+    .member-info{text-align:center;padding:13px}
+    .member-info h3{font-size:14px}
+    .member-info p{color:var(--gold2);font-size:11px}
+
+    /* GALLERY */
+    .gallery{background:#fff}
+    .gallery-grid{
+      max-width:1150px;margin:auto;display:grid;
+      grid-template-columns:repeat(3,1fr);gap:14px
+    }
+    .gallery-item{height:250px;overflow:hidden;position:relative}
+    .gallery-item img{height:100%;object-fit:cover;transition:.5s}
+    .gallery-item:hover img{transform:scale(1.08)}
+    .caption{
+      position:absolute;left:0;right:0;bottom:0;padding:35px 15px 13px;
+      color:#fff;font-size:13px;font-weight:700;
+      background:linear-gradient(transparent,#000c);opacity:0;transition:.3s
+    }
+    .gallery-item:hover .caption{opacity:1}
+
+    /* FOOTER */
+    footer{background:var(--dark);color:#fff;text-align:center;padding:58px 20px 28px}
+    footer h2{font-family:Georgia,serif;font-size:30px}
+    footer h2 span{color:var(--gold2)}
+    footer p{color:#aeb5ba;margin:8px 0 25px}
+    .social{display:flex;justify-content:center;gap:10px;margin-bottom:30px}
+    .social a{
+      width:40px;height:40px;border:1px solid #3b464e;
+      display:grid;place-items:center;font-size:12px;transition:.25s
+    }
+    .social a:hover{background:var(--gold);border-color:var(--gold);color:#101820}
+    .copy{border-top:1px solid #2d3941;padding-top:22px;color:#737d83;font-size:11px}
+
+    /* REVEAL */
+    .reveal{opacity:0;transform:translateY(28px);transition:.8s ease}
+    .reveal.show{opacity:1;transform:translateY(0)}
+
+    /* MOBILE */
+    @media(max-width:900px){
+      .identity-grid{grid-template-columns:repeat(2,1fr)}
+      .members-grid{grid-template-columns:repeat(3,1fr)}
+      .gallery-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:700px){
+      .navbar{padding:0 5%}
+      .menu{display:block}
+      .nav-links{
+        position:absolute;top:70px;left:0;width:100%;
+        display:flex;flex-direction:column;gap:0;
+        max-height:0;overflow:hidden;background:#101820;
+        transition:.35s
+      }
+      .nav-links.open{max-height:350px}
+      .nav-links a{display:block;padding:14px 7%}
+      section{padding:75px 5%}
+      .hero-content{width:90%}
+      .hero h1{letter-spacing:-3px}
+      .hero p{font-size:15px}
+      .about-grid{grid-template-columns:1fr;gap:35px}
+      .about-image{height:300px}
+      .structure-grid{grid-template-columns:1fr}
+      .members-grid{grid-template-columns:repeat(2,1fr)}
+      .gallery-grid{grid-template-columns:1fr}
+      .scroll{display:none}
+    }
+    @media(max-width:450px){
+      .identity-grid{grid-template-columns:1fr}
+      .members-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+      .member img{height:180px}
+      .section-head h2{font-size:33px}
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar" id="navbar">
+    <a href="#home" class="brand">Agribisnis KA</a>
+    <div class="menu" onclick="toggleMenu()">☰</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Beranda</a></li>
+      <li><a href="#identity">Identitas</a></li>
+      <li><a href="#structure">Struktur</a></li>
+      <li><a href="#members">Anggota</a></li>
+      <li><a href="#gallery">Galeri</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="eyebrow">Selamat Datang di</div>
+      <h1>Agribisnis KA</h1>
+      <p>
+        Satu kelas, satu cerita, satu perjalanan.
+        Bersama menciptakan kenangan yang tidak akan terlupakan.
+      </p>
+      <a href="#identity" class="btn">Jelajahi Kelas ↓</a>
+    </div>
+    <div class="scroll">SCROLL UNTUK MELANJUTKAN</div>
+  </section>
+
+  <section class="identity" id="identity">
+    <div class="section-head reveal">
+      <small>Class Identity</small>
+      <h2>Identitas Kelas</h2>
+      <p>Mengenal lebih dekat kelas kami dan tempat kami tumbuh bersama.</p>
+    </div>
+
+    <div class="identity-grid">
+      <div class="identity-card reveal">
+        <div class="icon">🏫</div>
+        <h3>Universitas</h3>
+        <p>Universitas Brawijaya PSDKU Kediri</p>
+      </div>
+      <div class="identity-card reveal">
+        <div class="icon">🎓</div>
+        <h3>Kelas</h3>
+        <p>Agribisnis KA</p>
+      </div>
+      <div class="identity-card reveal">
+        <div class="icon">📅</div>
+        <h3>Tahun Ajaran</h3>
+        <p>2026 / 2027</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="about-grid">
+      <div class="about-image reveal">
+        <img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=1200&q=85" alt="Kebersamaan kelas">
+      </div>
+      <div class="about-text reveal">
+        <small>TENTANG KAMI</small>
+        <h2>Lebih dari sekadar sebuah kelas.</h2>
+        <p>
+          Agribisnis KA adalah sebuah keluarga kecil yang dipertemukan
+          dalam satu ruang, satu sekolah, dan satu perjalanan pendidikan.
+        </p>
+        <p>
+          Setiap tugas, ujian, kegiatan, tawa, dan cerita menjadi bagian
+          dari perjalanan yang akan selalu kami ingat.
+        </p>
+        <div class="quote">
+          “Bersama kita belajar, bersama kita tumbuh, bersama kita menciptakan cerita.”
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="structure" id="structure">
+    <div class="section-head reveal">
+      <small>Class Organization</small>
+      <h2>Struktur Kelas</h2>
+      <p>Orang-orang yang membantu menjaga dan mendukung agar kelas tetap berjalan.</p>
+    </div>
+
+    <div class="structure-grid">
+      <div class="person reveal">
+        <img src="https://i.pravatar.cc/300?img=12" alt="Ketua Kelas">
+        <div><small>Ketua Kelas</small><h3>Deviana Ainurnisa</h3></div>
+      </div>
+      <div class="person reveal">
+        <img src="https://i.pravatar.cc/300?img=32" alt="Sekretaris">
+        <div><small>Sekretaris</small><h3>Falitha Ya'ni Maghfiroh</h3></div>
+      </div>
+      <div class="person reveal">
+        <img src="https://i.pravatar.cc/300?img=44" alt="Bendahara">
+        <div><small>Bendahara</small><h3>Oksatiara</h3></div>
+      </div>
+      <div class="person reveal">
+        <img src="https://i.pravatar.cc/300?img=44" alt="Admin">
+        <div><small>Admin</small><h3>Nadia Setivani</h3></div>
+      </div>
+      <div class="person reveal">
+        <img src="https://scontent-cgk2-2.cdninstagram.com/v/t51.82787-19/760024183_18118102805509789_6592169932991620133_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=105&ccb=7-5&_nc_sid=f7ccc5&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=V6bdfnSYTqoQ7kNvwEi3WNP&_nc_oc=AdoogRIVmt6E-rsbc3_6a6NzxvpcdnhjK6X2gdaWO1Cs5fjWs9xxJCyzXdd0JJ7dpW8&_nc_zt=24&_nc_ht=scontent-cgk2-2.cdninstagram.com&_nc_gid=wplkGwMnq_wY4OZg0FVoZw&_nc_ss=7baaf&oh=00_AQMqVQj1fYyMRQNmKHh7sQCBOm6z0Yh-f97qZ3BPfwz48w&oe=6AC72AD6" alt="PJ Kewarganegaraan">
+        <div><small>PJ Kewarganegaraan</small><h3>Iqbal Maulana A.M</h3></div>
+      </div>
+      <div class="person reveal">
+        <img src="https://i.pravatar.cc/300?img=44" alt="PJ B. Indonesia">
+        <div><small>PJ B. Indonesia</small><h3>Qidam Nazareno</h3></div>
+      </div>
+      <div class="person reveal">
+        <img src="https://i.pravatar.cc/300?img=44" alt="PJ Matematika Ekonomi">
+        <div><small>PJ Matematika Ekonomi</small><h3>Novana Fitria</h3></div>
+      </div>
+      <div class="person reveal">
+        <img src="https://i.pravatar.cc/300?img=44" alt="PJ B. Inggris">
+        <div><small>PJ B. Inggris</small><h3>Davina Syafa Felisa</h3></div>
+      </div>
+      <div class="person reveal">
+        <img src="https://i.pravatar.cc/300?img=44" alt="PJ Pancasila">
+        <div><small>PJ Pancasila</small><h3>Asti Ardiningrum</h3></div>
+      </div>
+      <div class="person reveal">
+        <img src="https://i.pravatar.cc/300?img=44" alt="PJ Pengantar Manajemen Agribisnis">
+        <div><small>PJ Pengantar Manajemen Agribisnis</small><h3>Ferina Nurfadila</h3></div>
+      </div>
+      <div class="person reveal">
+        <img src="https://i.pravatar.cc/300?img=44" alt="PJ Dasar Komunikasi">
+        <div><small>PJ Dasar Komunikasi</small><h3>Rizqiya Syifaaunnisa</h3></div>
+      </div>
+      <div class="person reveal">
+        <img src="https://scontent-cgk2-1.cdninstagram.com/v/t51.82787-19/557626221_18079656311054133_4374374009366666168_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=102&ccb=7-5&_nc_sid=f7ccc5&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=Y5UQMcyXfPcQ7kNvwFgTBPk&_nc_oc=AdoMR1rcC4ZZJLI5e6rAmOQzlmAN_eSNqPdr1rR3KmxSF0ZdfsDznVfYBiPt7GqoP8M&_nc_zt=24&_nc_ht=scontent-cgk2-1.cdninstagram.com&_nc_gid=wTOd2jlpBEDvikCSjSIrhA&_nc_ss=7baaf&oh=00_AQPu0fwW-G2OVnTIz1eRYTyQzUw81IsjW2kFCX0PjhQg9w&oe=6AC71B8A" alt="PJ Sosiologi Pedesaan Pertanian">
+        <div><small>PJ Sosiologi Pedesaan Pertanian</small><h3>Friska Marsila Septiana</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="members" id="members">
+    <div class="section-head reveal">
+      <small>Our People</small>
+      <h2>Anggota Kelas</h2>
+      <p>Orang-orang yang membuat Agribisnis KA menjadi sebuah cerita.</p>
+    </div>
+
+    <div class="members-grid">
+      <div class="member reveal"><img src="https://i.pravatar.cc/500?img=11" alt=""><div class="member-info"><h3>Mohammad Robbi Zidna Ilma</h3><p>01</p></div></div>
+      <div class="member reveal"><img src="https://i.pravatar.cc/500?img=12" alt=""><div class="member-info"><h3>Frisca Kharisma Putri</h3><p>02</p></div></div>
+      <div class="member reveal"><img src="https://i.pravatar.cc/500?img=13" alt=""><div class="member-info"><h3>Mishella Putri Lestari</h3><p>03</p></div></div>
+      <div class="member reveal"><img src="https://scontent-cgk2-2.cdninstagram.com/v/t51.82787-19/820357281_18133913815730772_2478687066418176175_n.jpg?stp=dst-jpg_s150x150_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=scontent-cgk2-2.cdninstagram.com&_nc_cat=100&_nc_oc=Q6cZ2gFsA6I3cyZuvUdhTSkLd-OlnzWiqUmexaUzMMoodYXjBpmMDIcBoZZyAIiLBnzkBNw&_nc_ohc=7e54h7yAFAgQ7kNvwGkReDG&_nc_gid=zc_sZ-PSNoNOZ23mrziUpA&edm=APQMUHMBAAAA&ccb=7-5&oh=00_AQOBh9drJDNmrGRynAGySQKZWIolYpa-ouqcH_k7zxRQYw&oe=6AC76A49&_nc_sid=6ff7c8" alt=""><div class="member-info"><h3>Novana Fitria</h3><p>04</p></div></div>
+      <div class="member reveal"><img src="https://i.pravatar.cc/500?img=15" alt=""><div class="member-info"><h3>Cecilia Nashri Zanetti</h3><p>05</p></div></div>
+      <div class="member reveal"><img src="https://scontent-cgk2-2.cdninstagram.com/v/t51.82787-19/820335906_18177659674445728_8433004997296106956_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=105&ccb=7-5&_nc_sid=f7ccc5&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=K8lqWPFHb54Q7kNvwHfNLXV&_nc_oc=AdoPfSdY11KLIIHoTbRGtPOdaMkXAL5gDY48Azs7BF70mAntdYK6nr1DpWGu7qFANvk&_nc_zt=24&_nc_ht=scontent-cgk2-2.cdninstagram.com&_nc_gid=0OEYjmvVk3T_cczp6BhaqA&_nc_ss=7baaf&oh=00_AQP8Mwk7xO3CT3Yo98mqsOkXh_a8KwCp_R02aM5kWnwc2Q&oe=6AC71AEA" alt=""><div class="member-info"><h3>Fakhri Nurjauhar Fasa</h3><p>06</p></div></div>
+      <div class="member reveal"><img src="https://www.instagram.com/p/DbexaE0Gcol/?img_index=2" alt=""><div class="member-info"><h3>Naufal Denisa Setiawan</h3><p>07</p></div></div>
+      <div class="member reveal"><img src="https://i.pravatar.cc/500?img=18" alt=""><div class="member-info"><h3>Naila Zahra Lutfiana</h3><p>08</p></div></div>
+      <div class="member reveal"><img src="https://i.pinimg.com/1200x/79/e1/f3/79e1f33ee976ff9b96a80fb22116bc74.jpg" alt=""><div class="member-info"><h3>Eka Ramadani Oktakirana</h3><p>09</p></div></div>
+      <div class="member reveal"><img src="https://i.pravatar.cc/500?img=20" alt=""><div class="member-info"><h3>Fadhia Shinta Aulia Putri</h3><p>10</p></div></div>
+      <div class="member reveal"><img src="https://i.pravatar.cc/500?img=21" alt=""><div class="member-info"><h3>Abdullah Maftuh Iman Putra</h3><p>11</p></div></div>
+      <div class="member reveal"><img src="https://i.pravatar.cc/500?img=22" alt=""><div class="member-info"><h3>Awal Hendriawan</h3><p>12</p></div></div>
+      <div class="member reveal"><img src="https://scontent-cgk2-1.cdninstagram.com/v/t51.82787-19/834527249_18095998769544333_5142122259504014771_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=103&ccb=7-5&_nc_sid=f7ccc5&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=kYPTgQb3Ui0Q7kNvwGNTc0D&_nc_oc=AdrvqAcvQAHtGOmdVhKcGDoF8U4qCT-ICZ6FmFyZjomTEQc6yrB7knh_JOrMcU8GPC8&_nc_zt=24&_nc_ht=scontent-cgk2-1.cdninstagram.com&_nc_gid=yFTeE-EH1z447nfgwYEPjQ&_nc_ss=7baaf&oh=00_AQNFFHCsKbbp1w875fdmwaSGmitKCp4fBG0l_qW8-vSYRw&oe=6AC72303" alt=""><div class="member-info"><h3>Nadia Setivani</h3><p>13</p></div></div>
+      <div class="member reveal"><img src="https://i.pravatar.cc/500?img=24" alt=""><div class="member-info"><h3>Dihyah Yussuf Utrujjah</h3><p>14</p></div></div>
+      <div class="member reveal"><img src="https://scontent-cgk2-2.cdninstagram.com/v/t51.82787-19/760024183_18118102805509789_6592169932991620133_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=105&ccb=7-5&_nc_sid=f7ccc5&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=V6bdfnSYTqoQ7kNvwEi3WNP&_nc_oc=AdoogRIVmt6E-rsbc3_6a6NzxvpcdnhjK6X2gdaWO1Cs5fjWs9xxJCyzXdd0JJ7dpW8&_nc_zt=24&_nc_ht=scontent-cgk2-2.cdninstagram.com&_nc_gid=wplkGwMnq_wY4OZg0FVoZw&_nc_ss=7baaf&oh=00_AQMqVQj1fYyMRQNmKHh7sQCBOm6z0Yh-f97qZ3BPfwz48w&oe=6AC72AD6" alt=""><div class="member-info"><h3>Iqbal Maulana Alima'lum</h3><p>15</p></div></div>
+      <div class="member reveal"><img src="https://i.pravatar.cc/500?img=26" alt=""><div class="member-info"><h3>Deviana Ainurnisa Mukminin</h3><p>16</p></div></div>
+      <div class="member reveal"><img src="https://scontent-cgk2-1.cdninstagram.com/v/t51.82787-19/557626221_18079656311054133_4374374009366666168_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=102&ccb=7-5&_nc_sid=f7ccc5&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=Y5UQMcyXfPcQ7kNvwFgTBPk&_nc_oc=AdoMR1rcC4ZZJLI5e6rAmOQzlmAN_eSNqPdr1rR3KmxSF0ZdfsDznVfYBiPt7GqoP8M&_nc_zt=24&_nc_ht=scontent-cgk2-1.cdninstagram.com&_nc_gid=wTOd2jlpBEDvikCSjSIrhA&_nc_ss=7baaf&oh=00_AQPu0fwW-G2OVnTIz1eRYTyQzUw81IsjW2kFCX0PjhQg9w&oe=6AC71B8A" alt=""><div class="member-info"><h3>Friska Marsila Septiana</h3><p>17</p></div></div>
+      <div class="member reveal"><img src="https://i.pravatar.cc/500?img=28" alt=""><div class="member-info"><h3>Davina Syafa Felisa</h3><p>18</p></div></div>
+      <div class="member reveal"><img src="https://i.pravatar.cc/500?img=29" alt=""><div class="member-info"><h3>Ferina Nurfadila</h3><p>19</p></div></div>
+      <div class="member reveal"><img src="https://scontent-cgk2-1.cdninstagram.com/v/t51.82787-19/572652415_18073207874334613_7868099046763152613_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=103&ccb=7-5&_nc_sid=f7ccc5&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=cgjrt4JHyQ0Q7kNvwG8jGcb&_nc_oc=AdpcQt5PYjyNSGoj4CT0kdFkmdQyn12vok6m5KztDRT_p88KriINritiPrcH9hegvp4&_nc_zt=24&_nc_ht=scontent-cgk2-1.cdninstagram.com&_nc_gid=7aZMsGMJwsJbFyQDL0ml5Q&_nc_ss=7baaf&oh=00_AQNxVa_Gl3q6WR_BYRxbunjTUtutnI1PY0rEKBG6NkzwKA&oe=6AC76644" alt=""><div class="member-info"><h3>Muhammad Rafi Amrulloh</h3><p>20</p></div></div>
+      <div class="member reveal"><img src="https://i.pravatar.cc/500?img=31" alt=""><div class="member-info"><h3>Qidam Nazareno</h3><p>21</p></div></div>
+      <div class="member reveal"><img src="https://scontent-cgk1-2.cdninstagram.com/v/t51.82787-19/787873517_17885667429615599_6524246005163455809_n.jpg?stp=dst-jpg_s150x150_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=scontent-cgk1-2.cdninstagram.com&_nc_cat=111&_nc_oc=Q6cZ2gH_7abYw7pqlbeow7nBjP0GKhyDtT4zk5ZLjkaWrNAIYCGwE11juLJUBJ5_fTmiBl0&_nc_ohc=0caRxDjSapcQ7kNvwEcBn8M&_nc_gid=MWR5Sqs8TuV0Bf71skb5pQ&edm=APQMUHMBAAAA&ccb=7-5&oh=00_AQMkU5X_HtIjxrjRuWEx8F9M8uhQQWOj8FE2_CNtq69-BQ&oe=6AC71C77&_nc_sid=6ff7c8" alt=""><div class="member-info"><h3>Fatiha Vina Pracintia</h3><p>22</p></div></div>
+      <div class="member reveal"><img src="https://scontent-cgk2-2.cdninstagram.com/v/t51.82787-19/776442957_18174348238432745_2610516680023998635_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=110&ccb=7-5&_nc_sid=f7ccc5&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=0LdTRBOLn4wQ7kNvwHnxE6g&_nc_oc=AdqXpeKMct6dJr-yL3FNWr15aqe2fKggblkSGBtMIy24mXM8OS4VJbDutKWqoId5Awo&_nc_zt=24&_nc_ht=scontent-cgk2-2.cdninstagram.com&_nc_gid=f88ZRR95gPIKcJH3TtQbBA&_nc_ss=7baaf&oh=00_AQMDyeEfuxOw94LPkOJJrMZEGzKxz3qs-iRKAN4wlfIKAw&oe=6AC740C9" alt=""><div class="member-info"><h3>Rizqiya Syifaaunnisa</h3><p>24</p></div></div>
+      <div class="member reveal"><img src="https://i.pravatar.cc/500?img=35" alt=""><div class="member-info"><h3>Asti Ardiningrum</h3><p>25</p></div></div>
+      <div class="member reveal"><img src="https://scontent-cgk1-1.cdninstagram.com/v/t51.82787-19/813966589_18115965947279681_7012449975468717261_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=109&ccb=7-5&_nc_sid=f7ccc5&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=ct6WIIuj0-EQ7kNvwH-CzmD&_nc_oc=Adop5YM-wHWBa_v3JsD2nj67t_KdI4JTqjM3S1qstykG500o2te9b7Se4jFwCo63jY8&_nc_zt=24&_nc_ht=scontent-cgk1-1.cdninstagram.com&_nc_gid=7B2a1iyWK5LV-K9WDnkKrg&_nc_ss=7baaf&oh=00_AQPDAECTnZa4w20CHSIkm37MveHEhdxRsG_ZqE8HBmjLYA&oe=6AC72BA1" alt=""><div class="member-info"><h3>Nia Kartika</h3><p>26</p></div></div>
+      <div class="member reveal"><img src="https://i.pravatar.cc/500?img=37" alt=""><div class="member-info"><h3>Falitha Ya'ni Maghfiroh</h3><p>27</p></div></div>
+      <div class="member reveal"><img src="https://scontent-cgk1-2.cdninstagram.com/v/t51.82787-19/761500465_18067033250707222_4841610051640345650_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=107&ccb=7-5&_nc_sid=f7ccc5&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=gkPJDrggIIcQ7kNvwHeUi5r&_nc_oc=Adpi-2_RLt2ZRWPvw7ZgFGH3NlB0IXmYXyn-PInj3lu9600cx-nK3MwXmYJLLdMl854&_nc_zt=24&_nc_ht=scontent-cgk1-2.cdninstagram.com&_nc_gid=zNxPzueLzG5B7vd37Ua9ig&_nc_ss=7baaf&oh=00_AQMjMoaNu-IW7F4x56cB2LHldlgB1UEKgDPabPEOxCpkmQ&oe=6AC712CC" alt=""><div class="member-info"><h3>Oksatiara</h3><p>28</p></div></div>
+      <div class="member reveal"><img src="https://i.pravatar.cc/500?img=39" alt=""><div class="member-info"><h3>Azzahra Balqis Salsabilla</h3><p>29</p></div></div>
+      <div class="member reveal"><img src="https://i.pravatar.cc/500?img=40" alt=""><div class="member-info"><h3>Henky Perdana Putra</h3><p>30</p></div></div>
+      <div class="member reveal"><img src="https://i.pravatar.cc/500?img=41" alt=""><div class="member-info"><h3>Samuel Maldini Mamesah</h3><p>31</p></div></div>
+      <div class="member reveal"><img src="https://i.pravatar.cc/500?img=42" alt=""><div class="member-info"><h3>Arjuna Sacharosa Putraregina</h3><p>32</p></div></div>
+      <div class="member reveal"><img src="https://i.pravatar.cc/500?img=43" alt=""><div class="member-info"><h3>Naomi Arica Anastasya</h3><p>33</p></div></div>
+      <div class="member reveal"><img src="https://i.pravatar.cc/500?img=44" alt=""><div class="member-info"><h3>Rafi Fairuza Karem</h3><p>34</p></div></div>
+      <div class="member reveal"><img src="https://scontent-cgk1-2.cdninstagram.com/v/t51.82787-19/768095100_18017879456857626_5705877992028615337_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=107&ccb=7-5&_nc_sid=f7ccc5&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=WbMWP9cqobQQ7kNvwGK4mqB&_nc_oc=Adp8ZaJJtBVb8ONnDu_hFh4FI8jcqtqJiiJtr-i9IJB0B6aSFQ6MYgMrmzKYZQeuu8M&_nc_zt=24&_nc_ht=scontent-cgk1-2.cdninstagram.com&_nc_gid=LrgoGvKBJyxuiFLuOOpHpA&_nc_ss=7baaf&oh=00_AQMrYABaL4B8NyCwdXk9i4ihB2e2Nn_2bPiswNJDgBGvfw&oe=6AC73F1E" alt=""><div class="member-info"><h3>Achmad Naafi' Reindra</h3><p>37</p></div></div>
+      <div class="member reveal"><img src="https://scontent-cgk2-1.cdninstagram.com/v/t51.82787-19/814695561_18116027600063649_2283279774045999886_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=106&ccb=7-5&_nc_sid=f7ccc5&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=pDom7T1Tz5cQ7kNvwHPA7pI&_nc_oc=AdqIdG2QjBhp3Pbtr7ZGWaQ3O6HaAQVWfWZUzHXM6L_X6DilDKpG_NZg3DdVZU8uEj0&_nc_zt=24&_nc_ht=scontent-cgk2-1.cdninstagram.com&_nc_gid=W4ZcDUuaZE6zA71biHtd7g&_nc_ss=7baaf&oh=00_AQMONP3FB0P4UQsQhPy9RX5BHvp5NjG6UJdpH-X5yZ8Zjg&oe=6AC75F18" alt=""><div class="member-info"><h3>Ardana Descha Pratama</h3><p>39</p></div></div>
+      <div class="member reveal"><img src="https://scontent-cgk2-2.cdninstagram.com/v/t51.82787-19/817297188_18109163171612302_4375908136804351745_n.jpg?stp=dst-jpg_s150x150_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=scontent-cgk2-2.cdninstagram.com&_nc_cat=110&_nc_oc=Q6cZ2gH_7abYw7pqlbeow7nBjP0GKhyDtT4zk5ZLjkaWrNAIYCGwE11juLJUBJ5_fTmiBl0&_nc_ohc=OYck0tOudi0Q7kNvwHQyMhZ&_nc_gid=MWR5Sqs8TuV0Bf71skb5pQ&edm=APQMUHMBAAAA&ccb=7-5&oh=00_AQNTIVD640qDRCuafx_x1bpUluE7DghK0PPIHx31ftMyUQ&oe=6AC71F40&_nc_sid=6ff7c8" alt=""><div class="member-info"><h3>Filzah Ar Rassya</h3><p>40</p></div></div>
+    </div>
+  </section>
+
+  <section class="gallery" id="gallery">
+    <div class="section-head reveal">
+      <small>Our Memories</small>
+      <h2>Galeri Kelas</h2>
+      <p>Beberapa momen yang menjadi bagian dari perjalanan kami.</p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item reveal"><img src="https://i.pinimg.com/1200x/f8/fa/3a/f8fa3ae7a064ead09d7d43f550967a0a.jpg" alt=""><div class="caption">Kebersamaan</div></div>
+      <div class="gallery-item reveal"><img src="https://i.pinimg.com/1200x/30/3a/cf/303acfd396e33025307feef24b775041.jpg" alt=""><div class="caption">Gema P2KB Faperta</div></div>
+      <div class="gallery-item reveal"><img src="https://iili.io/nlZENLB.jpg" alt=""><div class="caption">Acara Sekolah</div></div>
+      <div class="gallery-item reveal"><img src="https://i.pinimg.com/1200x/1e/42/8d/1e428d53c2b53620c2ef155888232686.jpg" alt=""><div class="caption">In Class</div></div>
+      <div class="gallery-item reveal"><img src="https://drive.google.com/file/d/1RNhvqaEEKFORKjLnO0IyTtqAtCa6gASf/view" alt=""><div class="caption">Friendship</div></div>
+      <div class="gallery-item reveal"><img src="https://id.pinterest.com/pin/819092251025706185/" alt=""><div class="caption">Memories</div></div>
+    </div>
+  </section>
+
+  <footer>
+    <h2>Agribisnis KA</h2>
+    <p>Satu kelas. Satu keluarga. Banyak cerita.</p>
+    <div class="social">
+      <a href="https://www.instagram.com/agrioobisnis_/" aria-label="Instagram">IG</a>
+      <a href="https://www.tiktok.com/@agrioobisnis_" aria-label="TikTok">TT</a>
+    </div>
+    <div class="copy">© <span id="year"></span> Agribisnis KA. Dibuat untuk mengenang perjalanan bersama.</div>
+  </footer>
+
+  <script>
+    function toggleMenu(){
+      document.getElementById("navLinks").classList.toggle("open");
+    }
+
+    document.querySelectorAll(".nav-links a").forEach(link=>{
+      link.addEventListener("click",()=>{
+        document.getElementById("navLinks").classList.remove("open");
+      });
+    });
+
+    const observer = new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting) entry.target.classList.add("show");
+      });
+    },{threshold:.12});
+
+    document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    window.addEventListener("scroll",()=>{
+      const nav=document.getElementById("navbar");
+      nav.style.boxShadow = window.scrollY>30 ? "0 5px 25px #0003" : "none";
+    });
+  </script>
+</body>
+</html>
